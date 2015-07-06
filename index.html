@@ -1,0 +1,52 @@
+<html>
+<head>
+
+</head>
+
+<body>
+
+Enter Annual Mileage<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+Enter Cost Per Mile<input id="cost-mile" type="number" name="quantity" min="1" max="500">
+Enter Your Time Frame<input id="time-frame" type="number" name="quantity" min="1" max="10">
+<input class="button" name="submit" type="button" value="Update" onclick="createCar();" />
+
+<script>
+
+
+// Create car object
+function car(one, two, three) {
+	    	this.one = one;
+	    	this.two = two;
+	    	this.three = three;
+		}
+
+/*var car = {
+	annualMileage: 6000,
+	costPerMile: 12,
+	timeFrame: 3,
+	calculator: function() {
+		var dailyMileage = car.annualMileage / 365;
+		console.log(dailyMileage);
+	}
+}*/
+
+//On form submit grab numbers and set new object. 
+var createCar = function() {
+	var userMileage = document.getElementById("annual-mileage").value;	
+	var userCost = document.getElementById("cost-mile").value;
+	var userTimeFrame = document.getElementById("time-frame").value;
+	var myCar = new car(userMileage, userCost, userTimeFrame);
+	console.log(myCar.one);
+}
+
+
+/* Need to change object construction on form submit otherwise an object will be created every single time. */
+
+
+
+</script>
+</body>
+
+
+
+</html>
