@@ -14,18 +14,20 @@ Enter Your Time Frame<input id="time-frame" type="number" name="quantity" min="1
 
 <h2>Enter your Mileage</h2>
 
-January<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-February<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-March<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-April<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-May<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-June<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-July<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-August<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-September<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-October<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-November<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
-December<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+<p>January<input id="january" type="number" name="quantity" min="1" max="100000" oninput="ammountToSave()"></p>
+<p>February<input id="february" type="number" name="quantity" min="1" max="100000"></p>
+<p>March<input id="march" type="number" name="quantity" min="1" max="100000"></p>
+<p>April<input id="april" type="number" name="quantity" min="1" max="100000"></p>
+<p>May<input id="may" type="number" name="quantity" min="1" max="100000"></p>
+<p>June<input id="june" type="number" name="quantity" min="1" max="100000"></p>
+<p>July<input id="july" type="number" name="quantity" min="1" max="100000"></p>
+<p>August<input id="august" type="number" name="quantity" min="1" max="100000"></p>
+<p>September<input id="september" type="number" name="quantity" min="1" max="100000"></p>
+<p>October<input id="october" type="number" name="quantity" min="1" max="100000"></p>
+<p>November<input id="november" type="number" name="quantity" min="1" max="100000"></p>
+<p>December<input id="december" type="number" name="quantity" min="1" max="100000"></p>
+
+<div id="ammount"></div>
 
 
 <script>
@@ -56,7 +58,11 @@ var editCar = function() {
 	document.getElementById("results").innerHTML += "<p>" + infoArray[0] + " Per Day</p>";
 }
 
-
+var ammountToSave = function() {
+	var monthAmmount = document.getElementById("january").value;
+	var infoArray = car.calculator();
+	document.getElementById("ammount").innerHTML = "<p>You owe: " + monthAmmount * infoArray[1] + "</p>";
+}
 
 </script>
 </body>
