@@ -58,6 +58,7 @@ var editCar = function() {
 	document.getElementById("results").innerHTML += "<p>" + infoArray[0] + " Per Day</p>";
 }
 
+//When user updates the montly field the result should change after every alteration.
 var ammountToSave = function() {
 	var monthAmmount = document.getElementById("january").value;
 	var infoArray = car.calculator();
