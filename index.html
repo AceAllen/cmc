@@ -8,39 +8,53 @@
 Enter Annual Mileage<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
 Enter Cost Per Mile<input id="cost-mile" type="number" name="quantity" min="1" max="500">
 Enter Your Time Frame<input id="time-frame" type="number" name="quantity" min="1" max="10">
-<input class="button" name="submit" type="button" value="Update" onclick="createCar();" />
+<input class="button" name="submit" type="button" value="Update" onclick="editCar();" />
+
+<div id="results"></div>
+
+<h2>Enter your Mileage</h2>
+
+January<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+February<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+March<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+April<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+May<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+June<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+July<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+August<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+September<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+October<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+November<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+December<input id="annual-mileage" type="number" name="quantity" min="1" max="100000">
+
 
 <script>
 
-
-// Create car object
-function car(one, two, three) {
-	    	this.one = one;
-	    	this.two = two;
-	    	this.three = three;
-		}
-
-/*var car = {
-	annualMileage: 6000,
-	costPerMile: 12,
-	timeFrame: 3,
+//Setup car details
+var car = {
+	annualMileage: 0,
+	costPerMile: 0,
+	timeFrame: 0,
 	calculator: function() {
-		var dailyMileage = car.annualMileage / 365;
-		console.log(dailyMileage);
+		var dailyMileage = [];
+		dailyMileage[0] = Math.round(car.annualMileage / 365);
+		dailyMileage[1] = Math.round(car.annualMileage / 12);
+		dailyMileage[2] = Math.round(car.annualMileage / 52);
+		return dailyMileage;
 	}
-}*/
-
-//On form submit grab numbers and set new object. 
-var createCar = function() {
-	var userMileage = document.getElementById("annual-mileage").value;	
-	var userCost = document.getElementById("cost-mile").value;
-	var userTimeFrame = document.getElementById("time-frame").value;
-	var myCar = new car(userMileage, userCost, userTimeFrame);
-	console.log(myCar.one);
 }
 
-
-/* Need to change object construction on form submit otherwise an object will be created every single time. */
+//On form submit set car object to user preferences.
+var editCar = function() {
+	car.annualMileage = document.getElementById("annual-mileage").value;	
+	car.costPerMile = document.getElementById("cost-mile").value;
+	car.timeFrame = document.getElementById("time-frame").value;
+	var infoArray = car.calculator();
+	document.getElementById("results").innerHTML = "<p>With your annual mileage set to " + car.annualMileage + " This allows for the following:</p>";
+	document.getElementById("results").innerHTML += "<p>" + infoArray[1] + " Per Month</p>";
+	document.getElementById("results").innerHTML += "<p>" + infoArray[2] + " Per Week</p>";
+	document.getElementById("results").innerHTML += "<p>" + infoArray[0] + " Per Day</p>";
+}
 
 
 
